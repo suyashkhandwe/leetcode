@@ -95,6 +95,12 @@ If all assertions pass, then your solution will be accepted.
         return nums.length - valCounter;
     }
 ```
+#### Complexities
+
+- `Time Complexity`: O(n)
+    - uses two pointers to iterate through the array once, swapping elements when necessary.
+- `Space Complexity`: O(1)
+    - not using any extra space that grows with the input size
 
 ### Ideal Solution
 
