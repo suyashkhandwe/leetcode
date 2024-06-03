@@ -108,4 +108,5 @@ public int removeElement(int[] nums, int val) {
 > [!TIP]
 > The ideal solution uses the key line from the porblem -
 > > The remaining elements of `nums` are not important as well as the size of `nums`.
+>
 > Due to this, it just ignored the elements in the back instead of swapping those.
