@@ -102,7 +102,7 @@ If all assertions pass, then your solution will be accepted.
 - `Space Complexity`: O(1)
     - not using any extra space that grows with the input size
 
-### Ideal Solution
+### Better Solution
 
 ```java
 public int removeElement(int[] nums, int val) {
@@ -118,7 +118,7 @@ public int removeElement(int[] nums, int val) {
 ```
 
 > [!TIP]
-> The ideal solution uses the key line from the porblem -
+> The better solution uses the key line from the porblem -
 > > The remaining elements of `nums` are not important as well as the size of `nums`.
 >
 > Due to this, it just ignored the elements in the back instead of swapping those.
