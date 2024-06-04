@@ -86,8 +86,24 @@ public int majorityElement(int[] nums) {
 ### Challenge Solution
 
 ```java
-
+public int majorityElement(int[] nums) {
+    int majorityNum = -1;
+    int majorityCount = 0;
+    for (int num : nums) {
+        if (majorityCount == 0) {
+            majorityNum = num;
+        }
+        majorityCount += (num == majorityNum) ? 1 : -1;
+    }
+    if (majorityCount > nums.length / 2) {
+        return majorityNum;
+    }
+    return majorityNum;
+}
 ```
+
+> [!TIP]
+> This uses [Boyer-Moore Majority Voting Algorithm](https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/)
 
 #### Complexities
 
@@ -95,9 +111,3 @@ public int majorityElement(int[] nums) {
     - Iterates through the array only once.
 - `Space Complexity`: O(1)
     - Uses the same array with no additional storage.
-
-### Ideal Solution
-
-```java
-
-```
