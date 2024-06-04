@@ -1,6 +1,6 @@
 # Problem 169. Majority Element
 
-> [!NOTE>]
+> [!NOTE]
 > [169. Majority Element](https://leetcode.com/problems/majority-element/description/?envType=study-plan-v2&envId=top-interview-150)
 
 Given an array `nums` of size `n`, return the majority element.
