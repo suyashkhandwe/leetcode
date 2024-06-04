@@ -1,7 +1,7 @@
 # Problem 27. Remove Element
 
-
-[text](link)
+> [!NOTE]
+> [text](link)
 
 ### Custom Judge:
 
@@ -25,7 +25,7 @@
 
 ## Solutions
 
-### My Solution
+### Solution 1
 
 ```java
 
@@ -37,7 +37,7 @@
 - `Space Complexity`: ?
     - ?
 
-### Ideal Solution
+### Better Solution
 
 ```java
 

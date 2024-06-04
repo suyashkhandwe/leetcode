@@ -56,7 +56,7 @@ Explanation:
 
 ## Solutions
 
-### My Solution
+### Solution 1
 
 ```java
 public int removeDuplicates(int[] nums) {
