@@ -1,7 +1,7 @@
 # Problem 27. Remove Element
 
-
-[27. Remove Element](https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150)
+> [!NOTE>]
+> [27. Remove Element](https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150)
 Given an integer array `nums` and an integer `val`, remove all occurrences of `val` in nums [in-place](https://en.wikipedia.org/wiki/In-place_algorithm). The order of the elements may be changed. Then return the number of elements in `nums` which are not equal to `val`.
 
 Consider the number of elements in `nums` which are not equal to `val` be `k`, to get accepted, you need to do the following things:
@@ -95,6 +95,7 @@ If all assertions pass, then your solution will be accepted.
         return nums.length - valCounter;
     }
 ```
+
 #### Complexities
 
 - `Time Complexity`: O(n)

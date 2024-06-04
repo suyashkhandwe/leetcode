@@ -1,7 +1,7 @@
 # Problem 80. Remove Duplicates from Sorted Array II
 
-
-[80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150)
+> [!NOTE>]
+> [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150)
 
 Given an integer array `nums` sorted in non-decreasing order, remove some duplicates [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) such that each unique element appears at most twice. The relative order of the elements should be kept the same.
 
@@ -70,6 +70,7 @@ public int removeDuplicates(int[] nums) {
     return replaceIdx;
 }
 ```
+
 #### Complexities
 
 - `Time Complexity`: O(n)
