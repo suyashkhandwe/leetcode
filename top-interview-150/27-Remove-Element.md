@@ -55,7 +55,7 @@ If all assertions pass, then your solution will be accepted.
 
 ## Solutions
 
-### My Solution
+### Solution 1
 
 ```java
     public int removeElement(int[] nums, int val) {

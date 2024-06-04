@@ -30,7 +30,7 @@ The majority element is the element that appears more than `⌊n / 2⌋` times. 
 
 ## Solutions
 
-### My Solution
+### Solution 1
 
 ```java
 public int majorityElement(int[] nums) {
@@ -54,7 +54,7 @@ public int majorityElement(int[] nums) {
 - `Space Complexity`: O(n)
     - Stores all `n` elements in the map and worst case scenario could be to store all elements.
 
-### Alternate Solution
+### Solution 2
 
 ```java
 public int majorityElement(int[] nums) {
@@ -83,7 +83,7 @@ public int majorityElement(int[] nums) {
 - `Space Complexity`: O(1)
     - Uses the same array with no additional storage.
 
-### Challenge Solution
+### Solution 3 - Challenge
 
 ```java
 public int majorityElement(int[] nums) {

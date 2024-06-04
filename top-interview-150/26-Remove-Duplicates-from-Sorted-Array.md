@@ -51,7 +51,7 @@ It does not matter what you leave beyond the returned `k` (hence they are unders
 
 ## Solutions
 
-### My Solution
+### Solution 1
 
 ```java
 public int removeDuplicates(int[] nums) {
