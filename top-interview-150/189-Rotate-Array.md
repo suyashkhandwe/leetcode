@@ -65,6 +65,34 @@ public void rotate(int[] nums, int k) {
 - `Space Complexity`: O(k)
     - create an additional array of size k to store the last k elements of the input array
 
+### Solution 2
+
+```java
+public void rotate(int[] nums, int k) {
+    //If k > the nums.length, just rotate the remainder of the times since nums.length rotation would result in the same array
+    k %= nums.length;
+    int kCounter = 0;
+    while (kCounter++ < k) {
+        int dropped = nums[nums.length - 1];
+        for (int i = nums.length - 1; i > 0; i--) {
+            nums[i] = nums[i - 1];
+            log.info("\tnums={}", nums);
+        }
+        nums[0] = dropped;
+        log.info("nums={}", nums);
+    }
+}
+```
+#### Complexities
+
+- `Time Complexity`: O(n*k)
+    - iterate through the array `n * k` times
+- `Space Complexity`: O(1)
+    - no extra space is being used
+
+> [!CAUTION]
+> Times out for very large payloads
+
 ### Better Solution
 
 ```java
