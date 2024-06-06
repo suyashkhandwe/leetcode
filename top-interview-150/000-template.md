@@ -1,4 +1,4 @@
-# Problem 27. Remove Element
+# Problem N. XXX
 
 > [!NOTE]
 > [text](link)
