@@ -59,6 +59,7 @@ public int maxProfit(int[] prices) {
     return maxProfit;
 }
 ```
+
 #### Complexities
 
 - `Time Complexity`: O(n)
@@ -81,6 +82,7 @@ public int maxProfit(int[] prices) {
     return maxProfit;
 }
 ```
+
 #### Complexities
 
 - `Time Complexity`: O(n)
