@@ -91,6 +91,32 @@ public boolean canJump(int[] nums) {
     return canJump;
 }
 ```
+
+#### Complexities
+
+- `Time Complexity`: O(n)
+    - iterate through array once.
+- `Space Complexity`: O(1)
+    - uses constant amount of extra space
+
+### Solution 3 (Conciseness)
+
+```java
+public boolean canJump(int[] nums) {
+    int reachableIndex = 0;
+    for (int idx = 0; idx < nums.length; idx++) {
+        if (idx > reachableIndex) {
+            return false;
+        }
+        if (reachableIndex >= nums.length) {
+            return true;
+        }
+        reachableIndex = Math.max(reachableIndex, idx + nums[idx]);
+    }
+    return true;
+}
+
+```
 #### Complexities
 
 - `Time Complexity`: O(n)
@@ -99,4 +125,7 @@ public boolean canJump(int[] nums) {
     - uses constant amount of extra space
 
 > [!TIP]
-> ?
+> Basically, at each step, we compute what's the furthest index we can reach.
+> - If the furthest index is less the current iterating index `idx`, return `false` since we can't "reach" this `idx`.
+> - If the furthest index is beyond the size of `nums`, return `true`.
+> - Otherwise, compute the furthest reachable index as the current iterating index `idx` + the max steps allows at `nums[idx]`.
