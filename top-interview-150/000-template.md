@@ -38,7 +38,7 @@
 - `Space Complexity`: ?
     - ?
 
-### Better Solution
+### Solution 2
 
 ```java
 
