@@ -1,0 +1,80 @@
+package com.test.apps;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class SolutionTest {
+    private static final Solution SOLUTION = new Solution();
+
+    public static Stream<Arguments> testSolutionArgs() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 3, 4, 5},
+                        new int[]{3, 4, 5, 1, 2},
+                        3),
+                Arguments.of(new int[]{2, 3, 4},
+                        new int[]{3, 4, 3},
+                        -1),
+                Arguments.of(new int[]{5, 1, 2, 3, 4},
+                        new int[]{4, 4, 1, 5, 1},
+                        4)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("testSolutionArgs")
+    void testSolution(final int[] gas, final int[] cost, final int expected) {
+        int actual = SOLUTION.canCompleteCircuit(gas, cost);
+        assertEquals(expected, actual);
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group = 'tess.app'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    disruptorVersion = '3.3.4'
+    log4jVersion = '2.19.0'
+    lombokVersion = '1.18.30'
+    junitVersion = '5.4.2'
+}
+
+dependencies {
+    implementation(
+            "com.lmax:disruptor:${disruptorVersion}",
+            "org.apache.logging.log4j:log4j-api:${log4jVersion}",
+            "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}",
+            "org.apache.logging.log4j:log4j-core:${log4jVersion}",
+            "org.apache.logging.log4j:log4j-jcl:${log4jVersion}"
+    )
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter-api",
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+    )
+
+    testRuntimeOnly(
+            "org.junit.jupiter:junit-jupiter-engine"
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
