@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+group = 'tess.app'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    disruptorVersion = '3.3.4'
+    log4jVersion = '2.19.0'
+    lombokVersion = '1.18.30'
+    junitVersion = '5.4.2'
+}
+
+dependencies {
+    implementation(
+            "com.lmax:disruptor:${disruptorVersion}",
+            "org.apache.logging.log4j:log4j-api:${log4jVersion}",
+            "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}",
+            "org.apache.logging.log4j:log4j-core:${log4jVersion}",
+            "org.apache.logging.log4j:log4j-jcl:${log4jVersion}"
+    )
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter-api",
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+    )
+
+    testRuntimeOnly(
+            "org.junit.jupiter:junit-jupiter-engine"
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
