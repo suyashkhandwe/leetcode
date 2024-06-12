@@ -113,3 +113,40 @@ public int canCompleteCircuit(int[] gas, int[] cost) {
     - iterates through gas or cost array once.
 - `Space Complexity`: O(1)
     - using constant space
+
+### Solution 3
+
+```java
+public int canCompleteCircuit(int[] gas, int[] cost) {
+    int totalGasSpent = 0;
+    int remainGasAtCurrentStation = 0;
+    int startIdx = 0;
+    for (int i = 0; i < gas.length; i++) {
+        remainGasAtCurrentStation += gas[i] - cost[i];
+        // More gas was spent that that was available.
+        // From index i=0 to n. This implies that no position between those 2 can't be startIdx
+        // It could be anywhere after n.
+        if (remainGasAtCurrentStation < 0) {
+            totalGasSpent += remainGasAtCurrentStation;
+            //Reset remainGasAtCurrentStation and set the startIdx to a future station.
+            remainGasAtCurrentStation = 0;
+            startIdx = i + 1;
+        }
+    }
+    totalGasSpent += remainGasAtCurrentStation;
+    if (totalGasSpent >= 0) {
+        return startIdx;
+    }
+    return -1;
+}
+```
+
+#### Complexities
+
+- `Time Complexity`: O(n)
+    - iterates through gas or cost array once.
+- `Space Complexity`: O(1)
+    - using constant space
+
+> [!TIP]
+> The above solution tracks the gas spent at each step, and whenever more gas is spent than available, it resets the gas spent and starts tracking from the next index.
