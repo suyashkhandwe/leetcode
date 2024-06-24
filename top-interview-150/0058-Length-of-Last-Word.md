@@ -79,4 +79,4 @@ public int lengthOfLastWord(String s) {
     - only use a constant amount of extra space for variables i, len, and the loop iterator
 
 > [!TIP]
-> Although, the 2 solution have the same complexities, the second one is faster.
+> Although, the 2 solutions have the same complexities, the second one is faster.
