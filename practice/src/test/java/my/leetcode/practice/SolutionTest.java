@@ -13,28 +13,24 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(new int[]{1, 0, 2},
-                        5),
-                Arguments.of(new int[]{1, 2, 2},
-                        4),
-                Arguments.of(new int[]{1, 1, 1},
-                        3),
-                Arguments.of(new int[]{10, 5, 10, 10, 5},
-                        8),
-                Arguments.of(new int[]{1, 3, 2, 2, 1},
-                        7),
-                Arguments.of(new int[]{1, 2, 87, 87, 87, 2, 1},
-                        13),
-                Arguments.of(new int[]{1,3,4,5,2},
-                        11)
+                Arguments.of("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"),
+                Arguments.of("PAYPALISHIRING", 4, "PINALSIGYAHRPI"),
+                Arguments.of("ABCDEFGHIJKLMN", 3, "AEIMBDFHJLNCGK"),
+                Arguments.of("ABCDEFGHIJKLMN", 4, "AGMBFHLNCEIKDJ"),
+                Arguments.of("ABCDEFGHIJKLMN", 7, "AMBLNCKDJEIFHG"),
+                Arguments.of("A", 1, "A"),
+                Arguments.of("AB", 1, "AB"),
+                Arguments.of("AB", 2, "AB"),
+                Arguments.of("ABCD", 3, "ABDC")
+
 
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(final int[] ratings, final int expected) {
-        int actual = SOLUTION.candy(ratings);
+    void testSolution(final String s, int numRows, final String expected) {
+        String actual = SOLUTION.convert(s, numRows);
         assertEquals(expected, actual);
     }
 }
