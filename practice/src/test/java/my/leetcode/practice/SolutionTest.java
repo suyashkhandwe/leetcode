@@ -13,24 +13,17 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"),
-                Arguments.of("PAYPALISHIRING", 4, "PINALSIGYAHRPI"),
-                Arguments.of("ABCDEFGHIJKLMN", 3, "AEIMBDFHJLNCGK"),
-                Arguments.of("ABCDEFGHIJKLMN", 4, "AGMBFHLNCEIKDJ"),
-                Arguments.of("ABCDEFGHIJKLMN", 7, "AMBLNCKDJEIFHG"),
-                Arguments.of("A", 1, "A"),
-                Arguments.of("AB", 1, "AB"),
-                Arguments.of("AB", 2, "AB"),
-                Arguments.of("ABCD", 3, "ABDC")
-
+                Arguments.of("sadbutsad", "sad", 0),
+                Arguments.of("leetcode", "leeto", -1),
+                Arguments.of("mississippi", "issipi", -1),
+                Arguments.of("a", "a", 0)
 
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(final String s, int numRows, final String expected) {
-        String actual = SOLUTION.convert(s, numRows);
-        assertEquals(expected, actual);
+    void testSolution(final String haystack, final String needle, final int expected) {
+        assertEquals(expected, SOLUTION.strStr(haystack, needle));
     }
 }
