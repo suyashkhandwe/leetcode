@@ -6,22 +6,19 @@ import java.util.regex.Pattern;
 
 @Slf4j
 class Solution {
-    public boolean isSubsequence(String s, String t) {
-        int sLen = s.length();
-        int tLen = t.length();
-        if (sLen < 1) {
-            return true;
-        }
-
-        int sIdx = 0;
-        int tIdx = 0;
-        char[] sChars = s.toCharArray();
-        char[] tChars = t.toCharArray();
-        while (tIdx < tLen && sIdx < sLen) {
-            if (sChars[sIdx] == tChars[tIdx++]) {
-                sIdx++;
+    public int[] twoSum(int[] numbers, int target) {
+        int l = 0;
+        int r = numbers.length - 1;
+        int sum = numbers[l] + numbers[r];
+        // Since we have a guaranteed sum = target.
+        while (sum != target) {
+            if (sum > target) {
+                r--;
+            } else {
+                l++;
             }
+            sum = numbers[l] + numbers[r];
         }
-        return sIdx == sLen;
+        return new int[]{l + 1, r + 1};
     }
 }
