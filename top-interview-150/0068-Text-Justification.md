@@ -44,15 +44,15 @@ For the last line of text, it should be left-justified, and no extra space is in
 
 #### Example 3:
 
-> **Input**: `words = ["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"], maxWidth = 20`
-> **Output**: 
-> `[`
-> `  "Science  is  what we",`
-> `  "understand      well",`
-> `  "enough to explain to",`
-> `  "a  computer.  Art is",`
-> `  "everything  else  we",`
-> `  "do                  "`
+> **Input**: `words = ["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"], maxWidth = 20`<br/>
+> **Output**: <br/>
+> `[`<br/>
+> `  "Science  is  what we",`<br/>
+> `  "understand      well",`<br/>
+> `  "enough to explain to",`<br/>
+> `  "a  computer.  Art is",`<br/>
+> `  "everything  else  we",`<br/>
+> `  "do                  "`<br/>
 > `]`
 
 #### Constraints:
