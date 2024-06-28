@@ -11,14 +11,14 @@ Return `true` if you can reach the last index, or `false` otherwise.
 
 #### Example 1:
 
-> **Input**: `nums = [2,3,1,1,4]`
-> **Output**: `true`
+> **Input**: `nums = [2,3,1,1,4]`<br/>
+> **Output**: `true`<br/>
 > **Explanation**: `Jump 1 step from index 0 to 1, then 3 steps to the last index.`
 
 #### Example 2:
 
-> **Input**: `nums = [3,2,1,0,4]`
-> **Output**: `false`
+> **Input**: `nums = [3,2,1,0,4]`<br/>
+> **Output**: `false`<br/>
 > **Explanation**: `You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.`
 
 #### Constraints:

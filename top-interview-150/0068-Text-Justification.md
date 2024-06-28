@@ -21,23 +21,23 @@ For the last line of text, it should be left-justified, and no extra space is in
 
 #### Example 1:
 
-> **Input**: `words = ["This", "is", "an", "example", "of", "text", "justification."], maxWidth = 16`
-> **Output**:
-> `[`
-> `   "This    is    an",`
-> `   "example  of text",`
-> `   "justification.  "`
+> **Input**: `words = ["This", "is", "an", "example", "of", "text", "justification."], maxWidth = 16`<br/>
+> **Output**:<br/>
+> `[`<br/>
+> `   "This    is    an",`<br/>
+> `   "example  of text",`<br/>
+> `   "justification.  "`<br/>
 > `]`
 
 #### Example 2:
 
-> **Input**: `words = ["What","must","be","acknowledgment","shall","be"], maxWidth = 16`
-> **Output**: 
-> `[`
-> `  "What   must   be",`
-> `  "acknowledgment  ",`
-> `  "shall be        "`
-> `]`
+> **Input**: `words = ["What","must","be","acknowledgment","shall","be"], maxWidth = 16`<br/>
+> **Output**: <br/>
+> `[`<br/>
+> `  "What   must   be",`<br/>
+> `  "acknowledgment  ",`<br/>
+> `  "shall be        "`<br/>
+> `]`<br/>
 > **Explanation**:
 > - `Note that the last line is "shall be    " instead of "shall     be", because the last line must be left-justified instead of fully-justified.`
 > - `Note that the second line is also left-justified because it contains only one word.`

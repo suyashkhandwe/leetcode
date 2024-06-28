@@ -14,8 +14,8 @@ Given two integer arrays `gas` and `cost`, return the starting gas station's `in
 
 #### Example 1:
 
-> **Input**: `gas = [1,2,3,4,5], cost = [3,4,5,1,2]`
-> **Output**: `3`
+> **Input**: `gas = [1,2,3,4,5], cost = [3,4,5,1,2]`<br/>
+> **Output**: `3`<br/>
 > **Explanation**:
 > - Start at `station 3` (index 3) and fill up with 4 units of gas. Your tank = `0 + 4 = 4`
 > - Travel to `station 4`. Your tank = `4 - 1 + 5 = 8`
@@ -27,8 +27,8 @@ Given two integer arrays `gas` and `cost`, return the starting gas station's `in
 
 #### Example 2:
 
-> **Input**: `gas = [2,3,4], cost = [3,4,3]`
-> **Output**: `-1`
+> **Input**: `gas = [2,3,4], cost = [3,4,3]`<br/>
+> **Output**: `-1`<br/>
 > **Explanation**:
 > - You can't start at `station 0 or 1`, as there is not enough gas to travel to the next station.
 > - Let's start at `station 2` and fill up with 4 units of gas. Your tank = `0 + 4 = 4`

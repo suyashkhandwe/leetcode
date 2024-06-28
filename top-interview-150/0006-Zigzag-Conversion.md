@@ -18,23 +18,23 @@ Write the code that will take a string and make this conversion given a number o
 
 #### Example 1:
 
-> **Input**: `s = "PAYPALISHIRING", numRows = 3`
+> **Input**: `s = "PAYPALISHIRING", numRows = 3`<br/>
 > **Output**: `"PAHNAPLSIIGYIR"`
 
 #### Example 2:
 
-> **Input**: `s = "PAYPALISHIRING", numRows = 4`
-> **Output**: `"PINALSIGYAHRPI"`
-> **Explanation**: 
-> `P     I    N`
-> `A   L S  I G`
-> `Y A   H R`
-> `P     I`
+> **Input**: `s = "PAYPALISHIRING", numRows = 4`<br/>
+> **Output**: `"PINALSIGYAHRPI"`<br/>
+> **Explanation**: <br/>
+> `P     I    N`<br/>
+> `A   L S  I G`<br/>
+> `Y A   H R`<br/>
+> `P     I`<br/>
 
 #### Example 3:
 
-> **Input**: `s = "A", numRows = 1`
-> **Output**: `"A"`
+> **Input**: `s = "A", numRows = 1`<br/>
+> **Output**: `"A"`<br/>
 
 #### Constraints:
 

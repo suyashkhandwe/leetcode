@@ -11,12 +11,12 @@ A subsequence of a string is a new string that is formed from the original strin
 
 #### Example 1:
 
-> **Input**: `s = "abc", t = "ahbgdc"`
+> **Input**: `s = "abc", t = "ahbgdc"`<br/>
 > **Output**: `true`
 
 #### Example 2:
 
-> **Input**: `s = "axc", t = "ahbgdc"`
+> **Input**: `s = "axc", t = "ahbgdc"`<br/>
 > **Output**: `false`
 
 #### Constraints:

@@ -13,19 +13,19 @@ Note that `s` may contain leading or trailing spaces or multiple spaces between 
 
 #### Example 1:
 
-> **Input**: `s = "the sky is blue"`
+> **Input**: `s = "the sky is blue"`<br/>
 > **Output**: `"blue is sky the"`
 
 #### Example 2:
 
-> **Input**: `s = "  hello world  "`
-> **Output**: `"world hello"`
+> **Input**: `s = "  hello world  "`<br/>
+> **Output**: `"world hello"`<br/>
 > **Explanation**: `Your reversed string should not contain leading or trailing spaces.`
 
 #### Example 3:
 
-> **Input**: `s = "a good   example"`
-> **Output**: `"example good a"`
+> **Input**: `s = "a good   example"`<br/>
+> **Output**: `"example good a"`<br/>
 > **Explanation**: `You need to reduce multiple spaces between two words to a single space in the reversed string.`
 
 #### Constraints:
