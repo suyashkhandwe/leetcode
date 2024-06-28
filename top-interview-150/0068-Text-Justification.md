@@ -17,8 +17,6 @@ For the last line of text, it should be left-justified, and no extra space is in
 - Each word's length is guaranteed to be greater than `0` and not exceed `maxWidth`.
 - The input array words contains at least one word.
 
-### Custom Judge:
-
 ### Examples
 
 #### Example 1:

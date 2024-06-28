@@ -14,66 +14,15 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(
-                        new String[]{"This", "is", "an", "example", "of", "text", "justification."},
-                        16,
-                        List.of(
-                                "This    is    an",
-                                "example  of text",
-                                "justification.  "
-                        )
-                ),
-                Arguments.of(
-                        new String[]{"What", "must", "be", "acknowledgment", "shall", "be"},
-                        16,
-                        List.of(
-                                "What   must   be",
-                                "acknowledgment  ",
-                                "shall be        "
-                        )
-                ),
-                Arguments.of(
-                        new String[]{"Listen","to","many,","speak","to","a","few."},
-                        6,
-                        List.of(
-                                "Listen",
-                                "to    ",
-                                "many, ",
-                                "speak ",
-                                "to   a",
-                                "few.  "
-                        )
-                ),
-                Arguments.of(
-                        new String[]{"What","must","be","shall","be."},
-                        5,
-                        List.of(
-                                "What ",
-                                "must ",
-                                "be   ",
-                                "shall",
-                                "be.  "
-                        )
-                ),
-                Arguments.of(
-                        new String[]{"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"},
-                        20,
-                        List.of(
-                                "Science  is  what we",
-                                "understand      well",
-                                "enough to explain to",
-                                "a  computer.  Art is",
-                                "everything  else  we",
-                                "do                  "
-                        )
-                )
-
+                Arguments.of("A man, a plan, a canal: Panama", true),
+                Arguments.of("race a car", false),
+                Arguments.of(" ", true)
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(final String[] words, final int maxWidth, final List<String> expected) {
-        assertEquals(expected, SOLUTION.fullJustify(words, maxWidth));
+    void testSolution(final String s, final boolean expected) {
+        assertEquals(expected, SOLUTION.isPalindrome(s));
     }
 }
