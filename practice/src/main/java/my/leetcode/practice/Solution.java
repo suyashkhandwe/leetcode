@@ -2,32 +2,26 @@ package my.leetcode.practice;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Locale;
+import java.util.regex.Pattern;
 
 @Slf4j
 class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int sLen = s.length();
+        int tLen = t.length();
+        if (sLen < 1) {
+            return true;
+        }
 
-    public boolean isPalindrome(String s) {
-        char[] chars = s.toLowerCase(Locale.ROOT).toCharArray();
-        int l = 0;
-        int r = s.length() - 1;
-        while (l <= r) {
-            if (!isAlphaNumeric(chars[l])) {
-                l++;
-            } else if (!isAlphaNumeric(chars[r])) {
-                r--;
-            } else if (chars[l] != chars[r]) {
-                return false;
-            } else {
-                l++;
-                r--;
+        int sIdx = 0;
+        int tIdx = 0;
+        char[] sChars = s.toCharArray();
+        char[] tChars = t.toCharArray();
+        while (tIdx < tLen && sIdx < sLen) {
+            if (sChars[sIdx] == tChars[tIdx++]) {
+                sIdx++;
             }
         }
-        return true;
-    }
-
-    private boolean isAlphaNumeric(int asciiChar) {
-        return (asciiChar >= 'a' && asciiChar <= 'z')
-                || (asciiChar >= '0' && asciiChar <= '9');
+        return sIdx == sLen;
     }
 }

@@ -3,8 +3,6 @@
 > [!NOTE]
 > [text](link)
 
-### Custom Judge:
-
 ### Examples
 
 #### Example 1:
