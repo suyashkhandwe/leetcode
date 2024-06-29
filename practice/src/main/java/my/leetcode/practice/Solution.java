@@ -6,19 +6,17 @@ import java.util.regex.Pattern;
 
 @Slf4j
 class Solution {
-    public int[] twoSum(int[] numbers, int target) {
+    public int maxArea(int[] height) {
+        int maxArea = 0;
         int l = 0;
-        int r = numbers.length - 1;
-        int sum = numbers[l] + numbers[r];
-        // Since we have a guaranteed sum = target.
-        while (sum != target) {
-            if (sum > target) {
-                r--;
+        int r = height.length - 1;
+        while (l < r) {
+            if (height[r] >= height[l]) {
+                maxArea = Math.max(maxArea, height[l] * (r - l++));
             } else {
-                l++;
+                maxArea = Math.max(maxArea, height[r] * (r-- - l));
             }
-            sum = numbers[l] + numbers[r];
         }
-        return new int[]{l + 1, r + 1};
+        return maxArea;
     }
 }
