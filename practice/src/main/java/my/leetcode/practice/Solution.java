@@ -2,31 +2,29 @@ package my.leetcode.practice;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 @Slf4j
 class Solution {
-    public boolean isValidSudoku(char[][] board) {
-        Set<Integer> frequencies = new HashSet<>();
-        for (int r = 0; r < 9; r++) {
-            for (int c = 0; c < 9; c++) {
-                if (board[r][c] != '.') {
-                    int number = Character.getNumericValue(board[r][c]);
-                    int rTracker = 100 + r * 10 + number;
-                    int cTracker = 1000 + c * 100 + number;
-                    int bTracker = 10000 + 1000 * (r / 3 + c / 3) + number;
-                    if (!frequencies.add(100 + r * 10 + number) ||
-                            !frequencies.add(1000 + c * 100 + number) ||
-                            !frequencies.add(10000 + 1000 * (r / 3 + c / 3) + number)) {
-                        return false;
-                    }
-                }
+    public void rotate(int[][] matrix) {
+        int colEndIdx = matrix.length - 1;
+        int rowEndInd = matrix.length / 2;
+        int r = 0;
+        while (r < rowEndInd) {
+            int c = r;
+            while (c < colEndIdx) {
+                // Save the top left.
+                int topLeft = matrix[r][c];
+                // Copy bottom left to top left
+                matrix[r][c] = matrix[colEndIdx - c + r][r];
+                // Copy bottom right to bottom left
+                matrix[colEndIdx - c + r][r] = matrix[colEndIdx][colEndIdx - c + r];
+                // Copy top right to bottom right
+                matrix[colEndIdx][colEndIdx - c + r] = matrix[c][colEndIdx];
+                // Copy saved top left to top right
+                matrix[c][colEndIdx] = topLeft;
+                c++;
             }
+            r++;
+            colEndIdx--;
         }
-        return true;
     }
 }

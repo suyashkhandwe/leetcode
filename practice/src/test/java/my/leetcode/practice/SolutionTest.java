@@ -5,8 +5,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -17,46 +15,32 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(new char[][]{
-                                new char[]{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
-                                new char[]{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-                                new char[]{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
-                                new char[]{'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-                                new char[]{'4', '.', '.', '8', '.', '3', '.', '.', '1'},
-                                new char[]{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-                                new char[]{'.', '6', '.', '.', '.', '.', '2', '8', '.'},
-                                new char[]{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-                                new char[]{'.', '.', '.', '.', '8', '.', '.', '7', '9'}},
-                        true),
-                Arguments.of(new char[][]{
-                                new char[]{'8', '3', '.', '.', '7', '.', '.', '.', '.'},
-                                new char[]{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-                                new char[]{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
-                                new char[]{'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-                                new char[]{'4', '.', '.', '8', '.', '3', '.', '.', '1'},
-                                new char[]{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-                                new char[]{'.', '6', '.', '.', '.', '.', '2', '8', '.'},
-                                new char[]{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-                                new char[]{'.', '.', '.', '.', '8', '.', '.', '7', '9'}},
-                        false),
-                Arguments.of(new char[][]{
-                                new char[]{'.', '.', '.', '.', '5', '.', '.', '1', '.'},
-                                new char[]{'.', '4', '.', '3', '.', '.', '.', '.', '.'},
-                                new char[]{'.', '.', '.', '.', '.', '3', '.', '.', '1'},
-                                new char[]{'8', '.', '.', '.', '.', '.', '.', '2', '.'},
-                                new char[]{'.', '.', '2', '.', '7', '.', '.', '.', '.'},
-                                new char[]{'.', '1', '5', '.', '.', '.', '.', '.', '.'},
-                                new char[]{'.', '.', '.', '.', '.', '2', '.', '.', '.'},
-                                new char[]{'.', '2', '.', '9', '.', '.', '.', '.', '.'},
-                                new char[]{'.', '.', '4', '.', '.', '.', '.', '.', '.'}},
-                        false)
+                Arguments.of(new int[][]{
+                                new int[]{1, 2, 3},
+                                new int[]{4, 5, 6},
+                                new int[]{7, 8, 9}},
+                        new int[][]{
+                                new int[]{7, 4, 1},
+                                new int[]{8, 5, 2},
+                                new int[]{9, 6, 3}}),
+                Arguments.of(new int[][]{
+                                new int[]{5, 1, 9, 11},
+                                new int[]{2, 4, 8, 10},
+                                new int[]{13, 3, 6, 7},
+                                new int[]{15, 14, 12, 16}},
+                        new int[][]{
+                                new int[]{15, 13, 2, 5},
+                                new int[]{14, 3, 4, 1},
+                                new int[]{12, 6, 8, 9},
+                                new int[]{16, 7, 10, 11}})
+
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(char[][] board, boolean expected) {
-        boolean actual = SOLUTION.isValidSudoku(board);
-        assertEquals(expected, actual);
+    void testSolution(int[][] matrix, int[][] expected) {
+        SOLUTION.rotate(matrix);
+        assertArrayEquals(expected, matrix);
     }
 }
