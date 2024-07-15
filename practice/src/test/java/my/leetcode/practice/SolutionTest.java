@@ -16,23 +16,21 @@ class SolutionTest {
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
                 Arguments.of(new int[][]{
-                                new int[]{1, 2, 3},
-                                new int[]{4, 5, 6},
-                                new int[]{7, 8, 9}},
+                                new int[]{1, 1, 1},
+                                new int[]{1, 0, 1},
+                                new int[]{1, 1, 1}},
                         new int[][]{
-                                new int[]{7, 4, 1},
-                                new int[]{8, 5, 2},
-                                new int[]{9, 6, 3}}),
+                                new int[]{1, 0, 1},
+                                new int[]{0, 0, 0},
+                                new int[]{1, 0, 1}}),
                 Arguments.of(new int[][]{
-                                new int[]{5, 1, 9, 11},
-                                new int[]{2, 4, 8, 10},
-                                new int[]{13, 3, 6, 7},
-                                new int[]{15, 14, 12, 16}},
+                                new int[]{0, 1, 2, 0},
+                                new int[]{3, 4, 5, 2},
+                                new int[]{1, 3, 1, 5}},
                         new int[][]{
-                                new int[]{15, 13, 2, 5},
-                                new int[]{14, 3, 4, 1},
-                                new int[]{12, 6, 8, 9},
-                                new int[]{16, 7, 10, 11}})
+                                new int[]{0, 0, 0, 0},
+                                new int[]{0, 4, 5, 0},
+                                new int[]{0, 3, 1, 0}})
 
         );
     }
@@ -40,7 +38,7 @@ class SolutionTest {
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
     void testSolution(int[][] matrix, int[][] expected) {
-        SOLUTION.rotate(matrix);
+        SOLUTION.setZeroes(matrix);
         assertArrayEquals(expected, matrix);
     }
 }
