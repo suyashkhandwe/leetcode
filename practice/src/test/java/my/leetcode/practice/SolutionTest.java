@@ -15,29 +15,17 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(new int[][]{
-                                new int[]{0, 1, 0},
-                                new int[]{0, 0, 1},
-                                new int[]{1, 1, 1},
-                                new int[]{0, 0, 0}},
-                        new int[][]{
-                                new int[]{0, 0, 0},
-                                new int[]{1, 0, 1},
-                                new int[]{0, 1, 1},
-                                new int[]{0, 1, 0}}),
-                Arguments.of(new int[][]{
-                                new int[]{1, 1},
-                                new int[]{1, 0}},
-                        new int[][]{
-                                new int[]{1, 1},
-                                new int[]{1, 1}})
+                Arguments.of("a", "b", false),
+                Arguments.of("aa", "ab", false),
+                Arguments.of("aa", "aab", true),
+                Arguments.of("bg", "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj", true)
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(int[][] board, int[][] expected) {
-        SOLUTION.gameOfLife(board);
-        assertArrayEquals(expected, board);
+    void testSolution(String ransomNote, String magazine, boolean expected) {
+        boolean actual = SOLUTION.canConstruct(ransomNote, magazine);
+        assertEquals(expected, actual);
     }
 }
