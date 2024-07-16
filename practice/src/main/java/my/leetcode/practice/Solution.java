@@ -1,26 +1,25 @@
 package my.leetcode.practice;
 
+import com.sun.jdi.request.StepRequest;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 class Solution {
-    public boolean canConstruct(String ransomNote, String magazine) {
-        if (ransomNote.length() > magazine.length()) {
-            return false;
+    public boolean isIsomorphic(String s, String t) {
+        int[] sIndexes = new int[128];
+        int[] tIndexes = new int[128];
+        for (int i = 0; i < s.length(); i++) {
+            sIndexes[s.charAt(i)] = i;
+            tIndexes[t.charAt(i)] = i;
         }
-        int[] characterFrequencies = new int[26];
-        for (char c : magazine.toCharArray()) {
-            characterFrequencies[c - 'a']++;
-        }
-        for (char c : ransomNote.toCharArray()) {
-            if (characterFrequencies[c - 'a'] == 0) {
+        for (int i = 0; i < s.length(); i++) {
+            if (sIndexes[s.charAt(i)] != tIndexes[t.charAt(i)]) {
                 return false;
             }
-            characterFrequencies[c - 'a']--;
         }
         return true;
     }
