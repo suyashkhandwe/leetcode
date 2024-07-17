@@ -15,18 +15,17 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of("egg", "add", true),
-                Arguments.of("foo", "bar", false),
-                Arguments.of("paper", "title", true),
-                Arguments.of("ab", "aa", false),
-                Arguments.of("badc", "baba", false)
+                Arguments.of("abba", "dog cat cat dog", true),
+                Arguments.of("abba", "dog cat cat fish", false),
+                Arguments.of("aaaa", "dog cat cat dog", false),
+                Arguments.of("abba", "dog dog dog dog", false)
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(String s, String t, boolean expected) {
-        boolean actual = SOLUTION.isIsomorphic(s, t);
+    void testSolution(String pattern, String s, boolean expected) {
+        boolean actual = SOLUTION.wordPattern(pattern, s);
         assertEquals(expected, actual);
     }
 }
