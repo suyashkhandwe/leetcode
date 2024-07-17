@@ -231,7 +231,7 @@ public List<List<String>> groupAnagrams(String[] strs) {
     - This is because we are storing the sorted strings in a HashMap, which can potentially store all the input strings.
 
 > [!TIP]
-> `Solution 1` is brute force and has the highest complexities.
-> `Solution 2` is relatively better, but still not the most optimum yet.
-> `Solution 3` is the best solution from complexity standpoint, however, it does not perform the best.
-> `Solution 4` has a little higher in complexity, but it performs the best. We are not using a custom `anagram` method here and instead using sorting the string for key in the map.
+> - `Solution 1` is brute force and has the highest complexities.
+> - `Solution 2` is relatively better, but still not the most optimum yet.
+> - `Solution 3` is the best solution from complexity standpoint, however, it does not perform the best.
+> - `Solution 4` has a little higher in complexity, but it performs the best. We are not using a custom `anagram` method here and instead using sorting the string for key in the map.
