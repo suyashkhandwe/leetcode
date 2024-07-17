@@ -1,33 +1,23 @@
 package my.leetcode.practice;
 
-import com.sun.jdi.request.StepRequest;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 @Slf4j
 class Solution {
-    public boolean wordPattern(String pattern, String s) {
-        String[] sStrings = s.split(" ");
-        if (pattern.length() != sStrings.length) {
+    public boolean isAnagram(String s, String t) {
+        if (s == null || t == null || s.length() != t.length()) {
             return false;
         }
+        int[] charCounter = new int[26];
 
-        String[] sStringsMap = new String[26];
-        int i = -1;
-        while (++i < pattern.length()) {
-            if (sStringsMap[pattern.charAt(i) - 97] == null) {
-                for (String string : sStringsMap) {
-                    if (sStrings[i].equals(string)) {
-                        return false;
-                    }
-                }
-                sStringsMap[pattern.charAt(i) - 97] = sStrings[i];
-            }
-            if (!sStringsMap[pattern.charAt(i) - 97].equals(sStrings[i])) {
+        char[] sCharArray = s.toCharArray();
+        char[] tCharArray = t.toCharArray();
+        for (int i = 0; i < s.length(); i++) {
+            charCounter[sCharArray[i] - 'a']++;
+            charCounter[tCharArray[i] - 'a']--;
+        }
+        for (int charCount : charCounter) {
+            if (charCount != 0) {
                 return false;
             }
         }
