@@ -97,7 +97,7 @@ public int[] twoSum(int[] nums, int target) {
 
 #### Complexities
 
-- `Time Complexity`: O(n 9 log(n))
+- `Time Complexity`: O(n * log(n))
     - where `n` is the number of elements in the input array. 
     - The sorting step takes O(n log(n)) time, and then the two-pointer approach takes O(n) time to find the two numbers that sum up to the target.
 - `Space Complexity`: O(n)
