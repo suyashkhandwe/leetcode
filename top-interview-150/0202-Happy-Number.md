@@ -101,4 +101,4 @@ int computeHappinessQuotient(int n) {
     - This is because the solution uses a constant amount of extra space regardless of the input size.
 
 > [!TIP]
-> `Solution 2` used the [Floyd’s Cycle Finding Algorithm](https://www.geeksforgeeks.org/floyds-cycle-finding-algorithm/) or `Hare-Tortoise algorithm`.
+> `Solution 2` uses the [Floyd’s Cycle Finding Algorithm](https://www.geeksforgeeks.org/floyds-cycle-finding-algorithm/) or `Hare-Tortoise algorithm`.
