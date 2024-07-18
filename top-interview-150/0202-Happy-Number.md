@@ -18,11 +18,11 @@ A happy number is a number defined by the following process:
 
 > **Input**: `n = 19`<br/>
 > **Output**: `true`<br/>
-> **Explanation**:
-> `1² + 9² = 82`
-> `8² + 2² = 68`
-> `6² + 8² = 100`
-> `1² + 0² + 0² = 1`
+> **Explanation**:<br/>
+> `1² + 9² = 82`<br/>
+> `8² + 2² = 68`<br/>
+> `6² + 8² = 100`<br/>
+> `1² + 0² + 0² = 1`<br/>
 
 #### Example 2:
 
