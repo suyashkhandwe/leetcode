@@ -15,16 +15,17 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(19, true),
-                Arguments.of(7, true),
-                Arguments.of(2, false)
+                Arguments.of(new int[]{1, 2, 3, 1}, 3, true),
+                Arguments.of(new int[]{1, 0, 1, 1}, 1, true),
+                Arguments.of(new int[]{1, 1}, 1, true),
+                Arguments.of(new int[]{1, 2, 3, 1, 2, 3}, 2, false)
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(int n, boolean expected) {
-        boolean actual = SOLUTION.isHappy(n);
+    void testSolution(int[] nums, int k, boolean expected) {
+        boolean actual = SOLUTION.containsNearbyDuplicate(nums, k);
         assertEquals(expected, actual);
     }
 }
