@@ -15,15 +15,16 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of("anagram", "nagaram", true),
-                Arguments.of("rat", "car", false)
+                Arguments.of(new int[]{2, 15, 11, 7}, 9, new int[]{0, 3}),
+                Arguments.of(new int[]{3, 2, 4}, 6, new int[]{1, 2}),
+                Arguments.of(new int[]{3, 3}, 6, new int[]{0, 1})
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(String s, String t, boolean expected) {
-        boolean actual = SOLUTION.isAnagram(s, t);
-        assertEquals(expected, actual);
+    void testSolution(int[] nums, int target, int[] expected) {
+        int[] actual = SOLUTION.twoSum(nums, target);
+        assertArrayEquals(expected, actual);
     }
 }
