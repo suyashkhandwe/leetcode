@@ -7,7 +7,7 @@ Given an array of integers `nums` and an integer `target`, return indices of the
 You may assume that each input would have **exactly one solution**, and you may not use the same element twice.
 You can return the answer in any order.
 
-**Follow-up**: Can you come up with an algorithm that is less than O(n<sup>2</sup>) time complexity?`
+**Follow-up**: Can you come up with an algorithm that is less than O(n²) time complexity?
 
 ### Examples
 
@@ -30,8 +30,8 @@ You can return the answer in any order.
 #### Constraints:
 
 - `2 <= nums.length <= 104`
-- `-10&#2079; <= nums[i] <= 10<sup>9</sup>`
-- `-10<sup>9</sup> <= target <= 10<sup>9</sup>`
+- `-10⁹ <= nums[i] <= 10⁹`
+- `-10⁹ <= target <= 10⁹`
 - `Only one valid answer exists.`
 
 ## Solutions
@@ -56,9 +56,9 @@ public int[] twoSum(int[] nums, int target) {
 
 #### Complexities
 
-- `Time Complexity`: O(n<sup>2</sup>)
+- `Time Complexity`: O(n²)
     - This is because we have nested loops where the outer loop runs `n` times and the inner loop runs `n-1, n-2, ..., 1 times`.
-    - Therefore, the total number of iterations is `n*(n-1)/2`, which simplifies to O(n<sup>2</sup>).
+    - Therefore, the total number of iterations is `n*(n-1)/2`, which simplifies to O(n²).
 - `Space Complexity`: O(1)
     - This is because we are using a constant amount of extra space to store the indexes array.
 
@@ -120,7 +120,7 @@ public int[] twoSum(int[] nums, int target) {
 
 #### Complexities
 
-- `Time Complexity`: O(n<sup>2</sup>)
+- `Time Complexity`: O(n²)
     - This is because there are two nested loops iterating over the array of length `n`.
 - `Space Complexity`: O(1)
   - This is because the solution only uses a constant amount of extra space regardless of the input size.
