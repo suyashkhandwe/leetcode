@@ -15,16 +15,16 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(new int[]{2, 15, 11, 7}, 9, new int[]{0, 3}),
-                Arguments.of(new int[]{3, 2, 4}, 6, new int[]{1, 2}),
-                Arguments.of(new int[]{3, 3}, 6, new int[]{0, 1})
+                Arguments.of(19, true),
+                Arguments.of(7, true),
+                Arguments.of(2, false)
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(int[] nums, int target, int[] expected) {
-        int[] actual = SOLUTION.twoSum(nums, target);
-        assertArrayEquals(expected, actual);
+    void testSolution(int n, boolean expected) {
+        boolean actual = SOLUTION.isHappy(n);
+        assertEquals(expected, actual);
     }
 }
