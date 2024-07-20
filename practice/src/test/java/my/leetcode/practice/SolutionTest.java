@@ -15,21 +15,16 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(new int[]{100, 4, 200, 1, 3, 2}, 4),
-                Arguments.of(new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1}, 9),
-                Arguments.of(new int[]{}, 0),
-                Arguments.of(new int[]{0}, 1),
-                Arguments.of(new int[]{-6, -1, -1, 9, -8, -6, -6, 4, 4, -3, -8, -1}, 1),
-                Arguments.of(new int[]{1, 3, 5, 2, 4}, 5),
-                Arguments.of(new int[]{9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6}, 7),
-                Arguments.of(new int[]{9, 1, -3, 2, 4, 8, 3, -1, 6, -2, -4, 7}, 4)
+                Arguments.of(new int[]{0, 1, 2, 4, 5, 7}, List.of("0->2", "4->5", "7")),
+                Arguments.of(new int[]{0, 2, 3, 4, 6, 8, 9}, List.of("0", "2->4", "6", "8->9")),
+                Arguments.of(new int[]{0, 1, 2, 4, 5, 7, 9, 10, 12, 14, 15, 16, 27, 28}, List.of("0->2", "4->5", "7", "9->10", "12", "14->16", "27->28"))
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(int[] nums, int expected) {
-        int actual = SOLUTION.longestConsecutive(nums);
+    void testSolution(int[] nums, List<String> expected) {
+        List<String> actual = SOLUTION.summaryRanges(nums);
         assertEquals(expected, actual);
     }
 }
