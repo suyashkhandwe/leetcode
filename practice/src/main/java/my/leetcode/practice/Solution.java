@@ -3,25 +3,25 @@ package my.leetcode.practice;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Slf4j
 class Solution {
-    public List<String> summaryRanges(int[] nums) {
-        List<String> ranges = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            int start = nums[i];
-            while (i + 1 < nums.length && nums[i] + 1 == nums[i + 1]) {
-                i++;
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparing(it -> it[0]));
+
+        int[][] mergedIntervals = new int[intervals.length][2];
+        mergedIntervals[0] = intervals[0];
+        int j = 0;
+        for (int i = 1; i < intervals.length; i++) {
+            if (mergedIntervals[j][1] >= intervals[i][0]) {
+                mergedIntervals[j][1] = Math.max(mergedIntervals[j][1], intervals[i][1]);
+            } else {
+                mergedIntervals[++j] = intervals[i];
             }
-            int end = nums[i];
-            ranges.add(start + (start != end ? "->" + end : ""));
         }
-        return ranges;
+        return Arrays.copyOfRange(mergedIntervals, 0, j + 1);
     }
 }
