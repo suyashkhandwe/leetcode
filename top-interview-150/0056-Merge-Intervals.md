@@ -23,7 +23,7 @@ Given an array of `intervals` where `intervals[i] = [starti, endi]`, merge all o
 
 - `1 <= intervals.length <= 10⁴`
 - `intervals[i].length == 2`
-- `0 <= starti <= endi <= 10⁴`
+- `0 <= startᵢ <= endᵢ <= 10⁴`
 
 ## Solutions
 

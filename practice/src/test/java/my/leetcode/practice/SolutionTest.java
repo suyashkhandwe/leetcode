@@ -15,31 +15,25 @@ class SolutionTest {
 
     public static Stream<Arguments> testSolutionArgs() {
         return Stream.of(
-                Arguments.of(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}},
-                        new int[][]{{1, 6}, {8, 10}, {15, 18}}),
-                Arguments.of(new int[][]{{1, 4}, {4, 5}},
-                        new int[][]{{1, 5}}),
-                Arguments.of(new int[][]{{2, 3}, {5, 5}, {2, 2}, {3, 4}, {3, 4}},
-                        new int[][]{{2, 4}, {5, 5}}),
-                Arguments.of(new int[][]{{2, 3}, {2, 2}, {3, 3}, {1, 3}, {5, 7}, {2, 2}, {4, 6}},
-                        new int[][]{{1, 3}, {4, 7}}),
-                Arguments.of(new int[][]{{1, 4}, {0, 1}},
-                        new int[][]{{0, 4}}),
-                Arguments.of(new int[][]{{1, 4}, {0, 4}},
-                        new int[][]{{0, 4}}),
-                Arguments.of(new int[][]{{1, 4}, {0, 2}},
-                        new int[][]{{0, 4}}),
-                Arguments.of(new int[][]{{1, 4}, {0, 0}},
-                        new int[][]{{0, 0}, {1, 4}}),
-                Arguments.of(new int[][]{{1, 4}},
-                        new int[][]{{1, 4}})
+                Arguments.of(new int[][]{{1, 3}, {6, 9}},
+                        new int[]{2, 5},
+                        new int[][]{{1, 5}, {6, 9}}),
+                Arguments.of(new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}},
+                        new int[]{4, 8},
+                        new int[][]{{1, 2}, {3, 10}, {12, 16}}),
+                Arguments.of(new int[][]{},
+                        new int[]{5, 7},
+                        new int[][]{{5, 7}}),
+                Arguments.of(new int[][]{{1, 5}},
+                        new int[]{2, 7},
+                        new int[][]{{1, 7}})
         );
     }
 
     @ParameterizedTest
     @MethodSource("testSolutionArgs")
-    void testSolution(int[][] intervals, int[][] expected) {
-        int[][] actual = SOLUTION.merge(intervals);
+    void testSolution(int[][] intervals, int[] newInterval, int[][] expected) {
+        int[][] actual = SOLUTION.insert(intervals, newInterval);
         assertArrayEquals(expected, actual);
     }
 }
