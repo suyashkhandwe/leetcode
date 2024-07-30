@@ -30,7 +30,7 @@ You must implement a solution with `O(1)` time complexity for each function.
 > `minStack.getMin(); // return -3`<br/>
 > `minStack.pop();`<br/>
 > `minStack.top();    // return 0`<br/>
-> `minStack.getMin(); // return -2``<br/>
+> `minStack.getMin(); // return -2`
 
 #### Constraints:
 
