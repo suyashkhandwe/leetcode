@@ -2,38 +2,39 @@ package my.leetcode.practice;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Arrays;
-
 @Slf4j
 class Solution {
-    public int[][] insert(int[][] intervals, int[] newInterval) {
 
-        int[][] updatedIntervals = new int[intervals.length + 1][2];
-        boolean inserted = false;
-        int updatedIntervalsIdx = 0;
-        for (int i = 0; i < intervals.length; ) {
-            if (!inserted && newInterval[0] <= intervals[i][0]) {
-                updatedIntervals[updatedIntervalsIdx++] = newInterval;
-                inserted = true;
-            } else {
-                updatedIntervals[updatedIntervalsIdx++] = intervals[i++];
-            }
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carryover = 0;
+        ListNode resultHead = new ListNode(0);
+        ListNode tail = resultHead;
+        while (l1 != null || l2 != null || carryover != 0) {
+            int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carryover;
+            int units = sum % 10;
+            carryover = sum / 10;
+            l1 = l1 == null ? null : l1.next;
+            l2 = l2 == null ? null : l2.next;
+            tail.next = new ListNode(units);
+            tail = tail.next;
         }
-        if (!inserted) {
-            updatedIntervals[updatedIntervalsIdx] = newInterval;
+        return resultHead.next;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
         }
 
-
-        int[][] mergedIntervals = new int[updatedIntervals.length][2];
-        mergedIntervals[0] = updatedIntervals[0];
-        int j = 0;
-        for (int i = 1; i < updatedIntervals.length; i++) {
-            if (mergedIntervals[j][1] >= updatedIntervals[i][0]) {
-                mergedIntervals[j][1] = Math.max(mergedIntervals[j][1], updatedIntervals[i][1]);
-            } else {
-                mergedIntervals[++j] = updatedIntervals[i];
-            }
+        ListNode(int val) {
+            this.val = val;
         }
-        return Arrays.copyOfRange(mergedIntervals, 0, j + 1);
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }
