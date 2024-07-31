@@ -5,20 +5,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class Solution {
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int carryover = 0;
-        ListNode resultHead = new ListNode(0);
-        ListNode tail = resultHead;
-        while (l1 != null || l2 != null || carryover != 0) {
-            int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carryover;
-            int units = sum % 10;
-            carryover = sum / 10;
-            l1 = l1 == null ? null : l1.next;
-            l2 = l2 == null ? null : l2.next;
-            tail.next = new ListNode(units);
-            tail = tail.next;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode mergedListHead = new ListNode(0);
+        ListNode mergedListTail = mergedListHead;
+        while (list1 != null || list2 != null) {
+            if (list2 == null || (list1 != null && list1.val <= list2.val)) {
+                mergedListTail.next = list1;
+                list1 = list1.next;
+            } else {
+                mergedListTail.next = list2;
+                list2 = list2.next;
+            }
+            mergedListTail = mergedListTail.next;
         }
-        return resultHead.next;
+        return mergedListHead.next;
     }
 
     public class ListNode {
