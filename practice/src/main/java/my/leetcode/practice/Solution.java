@@ -9,16 +9,16 @@ import java.util.Set;
 class Solution {
 
     public ListNode reverseList(ListNode head) {
-        ListNode current = head;
-        ListNode previous = null;
-        ListNode next = null;
-        while(current != null) {
-            next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+        return reverseList(head, null);
+    }
+
+    public ListNode reverseList(ListNode head, ListNode previous) {
+        if (head == null) {
+            return previous;
         }
-        return previous;
+        ListNode next = head.next;
+        head.next = previous;
+        return reverseList(next, head);
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
