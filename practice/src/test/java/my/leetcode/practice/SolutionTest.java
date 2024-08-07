@@ -66,7 +66,7 @@ class SolutionTest {
         expectedThree.next = expectedFive;
 //        expectedFour.next = expectedFive;
 
-        var actual = SOLUTION.removeNthFromEnd(head, 2);
+        var actual = SOLUTION.removeElements(head, 5);
 
         while (actual != null && expected != null) {
             assertEquals(actual.val, expected.val);

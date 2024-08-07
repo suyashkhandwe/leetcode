@@ -3,27 +3,32 @@ package my.leetcode.practice;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
 class Solution {
+    // 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6
+    // c
+    // p      c
+    //        p    c
+    //             p     c
 
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        var fast = head;
-        var slow = head;
-        for (int i = 0; i < n; i++) {
-            fast = fast.next;
-        }
-        if (fast == null) {
-            return head.next;
-        }
+    //  7 --> 7 --> 7 --> 7
+    //  c
+    //  p     c
+    //        p     c
+    //              p     c
 
-        while (fast.next != null) {
-            fast = fast.next;
-            slow = slow.next;
+    public ListNode removeElements(ListNode head, int val) {
+        // If head is null, return null
+        if (head == null) {
+            return null;
         }
-        slow.next = slow.next.next;
-        return head;
+        // Set the next to sub list after removing elements
+        head.next = removeElements(head.next, val);
+        // If head.val = val, skip head and return next, else return head
+        return head.val == val ? head.next : head;
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
