@@ -45,7 +45,7 @@ class SolutionTest {
     }
 
     @Test
-    void testGetAtIndex() {
+    void tesLinkedList() {
         var head = new Solution.ListNode(1);
         var two = new Solution.ListNode(2);
         var three = new Solution.ListNode(3);
@@ -56,22 +56,22 @@ class SolutionTest {
         three.next = four;
         four.next = five;
 
-        var eReversed = new Solution.ListNode(5);
-        var eReversedFour = new Solution.ListNode(4);
-        var eReversedThree = new Solution.ListNode(3);
-        var eReversedTwo = new Solution.ListNode(2);
-        var eReversedOne = new Solution.ListNode(1);
-        eReversed.next = eReversedFour;
-        eReversedFour.next = eReversedThree;
-        eReversedThree.next = eReversedTwo;
-        eReversedTwo.next = eReversedOne;
+        var expected = new Solution.ListNode(1);
+        var expectedTwo = new Solution.ListNode(2);
+        var expectedThree = new Solution.ListNode(3);
+//        var expectedFour = new Solution.ListNode(4);
+        var expectedFive = new Solution.ListNode(5);
+        expected.next = expectedTwo;
+        expectedTwo.next = expectedThree;
+        expectedThree.next = expectedFive;
+//        expectedFour.next = expectedFive;
 
-        var aReversed = SOLUTION.reverseList(head);
+        var actual = SOLUTION.removeNthFromEnd(head, 2);
 
-        while (aReversed != null && eReversed != null) {
-            assertEquals(eReversed.val, aReversed.val);
-            eReversed = eReversed.next;
-            aReversed = aReversed.next;
+        while (actual != null && expected != null) {
+            assertEquals(actual.val, expected.val);
+            actual = actual.next;
+            expected = expected.next;
         }
     }
 

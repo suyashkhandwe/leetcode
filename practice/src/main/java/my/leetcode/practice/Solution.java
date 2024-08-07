@@ -8,17 +8,22 @@ import java.util.Set;
 @Slf4j
 class Solution {
 
-    public ListNode reverseList(ListNode head) {
-        return reverseList(head, null);
-    }
-
-    public ListNode reverseList(ListNode head, ListNode previous) {
-        if (head == null) {
-            return previous;
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        var fast = head;
+        var slow = head;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
         }
-        ListNode next = head.next;
-        head.next = previous;
-        return reverseList(next, head);
+        if (fast == null) {
+            return head.next;
+        }
+
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return head;
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
