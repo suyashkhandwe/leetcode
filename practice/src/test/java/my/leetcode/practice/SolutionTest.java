@@ -59,14 +59,14 @@ class SolutionTest {
         var expected = new Solution.ListNode(1);
         var expectedTwo = new Solution.ListNode(2);
         var expectedThree = new Solution.ListNode(3);
-//        var expectedFour = new Solution.ListNode(4);
+        var expectedFour = new Solution.ListNode(4);
         var expectedFive = new Solution.ListNode(5);
-        expected.next = expectedTwo;
-        expectedTwo.next = expectedThree;
+        expected.next = expectedThree;
         expectedThree.next = expectedFive;
-//        expectedFour.next = expectedFive;
+        expectedFive.next = expectedTwo;
+        expectedTwo.next = expectedFour;
 
-        var actual = SOLUTION.removeElements(head, 5);
+        var actual = SOLUTION.oddEvenList(head);
 
         while (actual != null && expected != null) {
             assertEquals(actual.val, expected.val);

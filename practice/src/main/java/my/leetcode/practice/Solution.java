@@ -2,33 +2,23 @@ package my.leetcode.practice;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
 @Slf4j
 class Solution {
-    // 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6
-    // c
-    // p      c
-    //        p    c
-    //             p     c
-
-    //  7 --> 7 --> 7 --> 7
-    //  c
-    //  p     c
-    //        p     c
-    //              p     c
-
-    public ListNode removeElements(ListNode head, int val) {
-        // If head is null, return null
-        if (head == null) {
-            return null;
+    public ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-        // Set the next to sub list after removing elements
-        head.next = removeElements(head.next, val);
-        // If head.val = val, skip head and return next, else return head
-        return head.val == val ? head.next : head;
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode firstEven = head.next;
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+        odd.next = firstEven;
+        return head;
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
