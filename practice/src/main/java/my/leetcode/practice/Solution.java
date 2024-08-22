@@ -4,21 +4,34 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 class Solution {
-    public ListNode oddEvenList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
+    public boolean isPalindrome(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        ListNode odd = head;
-        ListNode even = head.next;
-        ListNode firstEven = head.next;
-        while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+        slow = reverse((fast == null) ? slow : slow.next);
+        while (slow != null && head != null) {
+            if (head.val != slow.val) {
+                return false;
+            }
+            slow = slow.next;
+            head = head.next;
         }
-        odd.next = firstEven;
-        return head;
+        return true;
+    }
+
+    private ListNode reverse(ListNode head) {
+        ListNode current = head;
+        ListNode previous = null;
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        return previous;
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

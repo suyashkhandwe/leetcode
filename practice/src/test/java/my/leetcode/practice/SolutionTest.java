@@ -47,32 +47,29 @@ class SolutionTest {
     @Test
     void tesLinkedList() {
         var head = new Solution.ListNode(1);
-        var two = new Solution.ListNode(2);
-        var three = new Solution.ListNode(3);
-        var four = new Solution.ListNode(4);
-        var five = new Solution.ListNode(5);
+        var two = new Solution.ListNode(1);
+        var three = new Solution.ListNode(2);
+        var four = new Solution.ListNode(1);
+//        var five = new Solution.ListNode(1);
         head.next = two;
         two.next = three;
         three.next = four;
-        four.next = five;
+//        four.next = five;
 
-        var expected = new Solution.ListNode(1);
-        var expectedTwo = new Solution.ListNode(2);
-        var expectedThree = new Solution.ListNode(3);
-        var expectedFour = new Solution.ListNode(4);
-        var expectedFive = new Solution.ListNode(5);
-        expected.next = expectedThree;
-        expectedThree.next = expectedFive;
-        expectedFive.next = expectedTwo;
-        expectedTwo.next = expectedFour;
+//        var expected = new Solution.ListNode(1);
+//        var expectedTwo = new Solution.ListNode(2);
+//        var expectedThree = new Solution.ListNode(3);
+//        var expectedFour = new Solution.ListNode(4);
+//        var expectedFive = new Solution.ListNode(5);
+//        expected.next = expectedThree;
+//        expectedThree.next = expectedFive;
+//        expectedFive.next = expectedTwo;
+//        expectedTwo.next = expectedFour;
 
-        var actual = SOLUTION.oddEvenList(head);
+        var expected = false;
+        var actual = SOLUTION.isPalindrome(head);
 
-        while (actual != null && expected != null) {
-            assertEquals(actual.val, expected.val);
-            actual = actual.next;
-            expected = expected.next;
-        }
+        assertEquals(expected, actual);
     }
 
     @Test
