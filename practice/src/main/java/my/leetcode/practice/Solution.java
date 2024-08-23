@@ -4,25 +4,19 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode merged = new ListNode(Integer.MIN_VALUE);
-        ListNode current = merged;
-        while (list1 != null && list2 != null) {
-            if (list1.val < list2.val) {
-                current.next = list1;
-                list1 = list1.next;
-            } else {
-                current.next = list2;
-                list2 = list2.next;
-            }
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode(0);
+        ListNode current = result;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = ((l1 == null) ? 0 : l1.val) + ((l2 == null) ? 0 : l2.val) + carry;
+            carry = sum / 10;
+            current.next = new ListNode(sum % 10);
             current = current.next;
+            l1 = ((l1 == null) ? null : l1.next);
+            l2 = ((l2 == null) ? null : l2.next);
         }
-        if (list1 != null) {
-            current.next = list1;
-        } else if (list2 != null) {
-            current.next = list2;
-        }
-        return merged.next;
+        return result.next;
     }
 
     private ListNode reverse(ListNode head) {
