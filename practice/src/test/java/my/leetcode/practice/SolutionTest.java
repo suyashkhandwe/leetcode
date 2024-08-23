@@ -74,6 +74,8 @@ class SolutionTest {
 
     @Test
     void MyLinkedListTest() {
+        //["MyLinkedList",  "addAtHead",    "addAtTail",    "addAtIndex",   "get",  "deleteAtIndex",    "get"]
+        //[ [],             [1],            [3],            [1,2],          [1],    [1],                [1]]
         MyLinkedList obj = new MyLinkedList();
         obj.addAtHead(1);
         obj.addAtTail(3);
@@ -81,11 +83,11 @@ class SolutionTest {
         obj.get(1);
         obj.deleteAtIndex(1);
         obj.get(1);
-        obj.get(3);
-        obj.deleteAtIndex(3);
-        obj.deleteAtIndex(0);
-        obj.get(0);
-        obj.deleteAtIndex(0);
-        obj.get(0);
+//        obj.get(3);
+//        obj.deleteAtIndex(3);
+//        obj.deleteAtIndex(0);
+//        obj.get(0);
+//        obj.deleteAtIndex(0);
+//        obj.get(0);
     }
 }

@@ -4,22 +4,25 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 class Solution {
-    public boolean isPalindrome(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        slow = reverse((fast == null) ? slow : slow.next);
-        while (slow != null && head != null) {
-            if (head.val != slow.val) {
-                return false;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode merged = new ListNode(Integer.MIN_VALUE);
+        ListNode current = merged;
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                current.next = list1;
+                list1 = list1.next;
+            } else {
+                current.next = list2;
+                list2 = list2.next;
             }
-            slow = slow.next;
-            head = head.next;
+            current = current.next;
         }
-        return true;
+        if (list1 != null) {
+            current.next = list1;
+        } else if (list2 != null) {
+            current.next = list2;
+        }
+        return merged.next;
     }
 
     private ListNode reverse(ListNode head) {

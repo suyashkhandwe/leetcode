@@ -5,14 +5,16 @@ public class MyLinkedList {
     private static class Node {
         int val;
         Node next;
+        Node prev;
 
         Node(int val) {
             this.val = val;
         }
 
-        Node(int val, Node next) {
+        Node(int val, Node next, Node prev) {
             this.val = val;
             this.next = next;
+            this.prev = prev;
         }
     }
 
@@ -27,16 +29,19 @@ public class MyLinkedList {
         if (index >= size) {
             return -1;
         } else {
-            Node iterator = head;
+            Node current = head;
             for (int i = 0; i < index; i++) {
-                iterator = iterator.next;
+                current = current.next;
             }
-            return iterator.val;
+            return current.val;
         }
     }
 
     public void addAtHead(int val) {
-        head = new Node(val, head);
+        head = new Node(val, head, null);
+        if (head.next != null) {
+            head.next.prev = head;
+        }
         size++;
     }
 
@@ -44,11 +49,11 @@ public class MyLinkedList {
         if (head == null) {
             addAtHead(val);
         } else {
-            Node iterator = head;
-            while (iterator.next != null) {
-                iterator = iterator.next;
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
             }
-            iterator.next = new Node(val);
+            current.next = new Node(val, null, current);
             size++;
         }
     }
@@ -60,12 +65,12 @@ public class MyLinkedList {
             addAtTail(val);
         } else if (index < size) {
             Node node = new Node(val);
-            Node iterator = head;
+            Node current = head;
             for (int i = 0; i < index - 1; i++) {
-                iterator = iterator.next;
+                current = current.next;
             }
-            node.next = iterator.next;
-            iterator.next = node;
+            node.next = current.next;
+            current.next = node;
             size++;
         }
     }
@@ -75,14 +80,12 @@ public class MyLinkedList {
             head = head.next;
             size--;
         } else if (index < size) {
-            Node iterator = head;
+            Node current = head;
             for (int i = 0; i < index - 1; i++) {
-                iterator = iterator.next;
+                current = current.next;
             }
-            if (iterator.next != null) {
-                iterator.next = iterator.next.next;
-                size--;
-            }
+            current.next = current.next.next;
+            size--;
         }
     }
 }
