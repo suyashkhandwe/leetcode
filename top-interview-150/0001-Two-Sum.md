@@ -64,7 +64,7 @@ public int[] twoSum(int[] nums, int target) {
 
 ### Solution 2
 
-```java
+```java []
 public int[] twoSum(int[] nums, int target) {
     int[] indexes = new int[2];
     int l = 0;
@@ -93,6 +93,9 @@ public int[] twoSum(int[] nums, int target) {
     indexes[1] = i;
     return indexes;
 }
+```
+```python []
+????
 ```
 
 #### Complexities
